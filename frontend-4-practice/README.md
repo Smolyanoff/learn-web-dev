@@ -48,11 +48,11 @@ Vite напишет адрес — обычно `http://localhost:3000`.
 
 ```
 http://localhost:3000/api/booking/today
-http://localhost:3000/api/slots?day=17&month=9&year=2026
-http://localhost:3000/api/slots?day=18&month=9&year=2026
+http://localhost:3000/api/slots?day=17&month=5&year=2025
+http://localhost:3000/api/slots?day=18&month=5&year=2025
 ```
 
-Обратите внимание: для 17-го и 18-го числа ответы разные. Так сделано,
+Демо-дата сервера — 2 июня 2025 года, чтобы соответствовать макету. Обратите внимание: для 17-го и 18-го числа ответы разные. Так сделано,
 чтобы было видно, что данные действительно приходят с сервера.
 
 ---

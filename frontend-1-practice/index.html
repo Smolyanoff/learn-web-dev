@@ -3,24 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Выбор даты и времени</title>
+    <meta name="theme-color" content="#303030" />
+    <title>Выбор даты и времени — Барбершоп</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    
   </head>
   <body>
-    <!--
-      ЗАДАНИЕ
-      ========
-      Сверстать страницу выбора даты и времени по своему макету.
-
-      Пока это только вёрстка. Никакого JavaScript — ни кликов,
-      ни переходов, ни выбора дня. Всё статично.
-
-      Стили пишите в styles.css. Разметку — здесь.
-    -->
-
     <div class="page">
-      <!-- Начните отсюда. Разметьте шапку, основную область
-           с календарём и слотами, подвал. -->
+      <header class="site-header">
+        <a class="brand" href="#" aria-label="Барбершоп — главная"><svg viewBox="0 0 64 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="33" r="5.4"/><circle cx="25" cy="39" r="5.4"/><path d="M19 29 48 5 53 7 26 33M29 35 56 17M13 28 44 9M34 27 53 12"/><path d="m39 18 15-6"/></g></svg></a>
+        <a class="home-link" href="#">На главную</a>
+      </header>
+
+      <nav class="steps" aria-label="Этапы записи">
+        <div class="step-item step-item--complete"><span class="step-number">1</span><span class="step-line"></span></div>
+        <div class="step-item step-item--complete"><span class="step-number">2</span><span class="step-line"></span></div>
+        <div class="step-item step-item--current" aria-current="step"><span class="step-number">3</span><span class="step-line"></span></div>
+        <div class="step-item"><span class="step-number">4</span><span class="step-line"></span></div>
+        <div class="step-item"><span class="step-number">5</span><span class="step-line"></span></div>
+      </nav>
+
+      <main class="main-content">
+        <div class="content-wrap">
+          <div class="page-heading">
+            <button class="back-button" type="button" aria-label="Назад" disabled><span aria-hidden="true">←</span></button>
+            <h1 class="heading-label">Выберите дату и время</h1>
+          </div>
+
+          <div class="booking-layout">
+            <section class="panel calendar-panel" aria-labelledby="calendar-title">
+              <div class="panel-heading calendar-heading">
+                <h2 id="calendar-title" class="month-title">Июнь 2025</h2>
+                <div class="month-controls">
+                  <button class="month-arrow" type="button" id="prev-month" aria-label="Предыдущий месяц" disabled>‹</button>
+                  <button class="month-arrow" type="button" id="next-month" aria-label="Следующий месяц" disabled>›</button>
+                </div>
+              </div>
+              <div class="calendar-weekdays" aria-hidden="true">
+                <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
+              </div>
+              <div class="day-grid" id="day-grid" aria-label="Дни месяца">
+                <button class="day-cell day-cell--outside" disabled>26</button><button class="day-cell day-cell--outside" disabled>27</button><button class="day-cell day-cell--outside" disabled>28</button><button class="day-cell day-cell--outside" disabled>29</button><button class="day-cell day-cell--outside" disabled>30</button><button class="day-cell day-cell--outside" disabled>31</button><button class="day-cell day-cell--disabled" disabled>1</button>
+                <button class="day-cell" data-day="2">2</button><button class="day-cell" data-day="3">3</button><button class="day-cell" data-day="4">4</button><button class="day-cell" data-day="5">5</button><button class="day-cell" data-day="6">6</button><button class="day-cell" data-day="7">7</button><button class="day-cell" data-day="8">8</button>
+                <button class="day-cell" data-day="9">9</button><button class="day-cell" data-day="10">10</button><button class="day-cell" data-day="11">11</button><button class="day-cell" data-day="12">12</button><button class="day-cell" data-day="13">13</button><button class="day-cell" data-day="14">14</button><button class="day-cell" data-day="15">15</button>
+                <button class="day-cell" data-day="16">16</button><button class="day-cell" data-day="17">17</button><button class="day-cell" data-day="18">18</button><button class="day-cell" data-day="19">19</button><button class="day-cell day-cell--selected" data-day="20" aria-pressed="true">20</button><button class="day-cell" data-day="21">21</button><button class="day-cell" data-day="22">22</button>
+              </div>
+            </section>
+
+            <section class="panel time-panel" aria-labelledby="time-title">
+              <h2 id="time-title" class="panel-title">Доступное время</h2>
+              <div class="time-grid" id="time-grid">
+                <button class="time-slot" data-time="10:00">10:00</button>
+                <button class="time-slot time-slot--unavailable" data-time="11:00" disabled><span>11:00</span><small>Занято</small></button>
+                <button class="time-slot time-slot--selected" data-time="12:00" aria-pressed="true">12:00</button>
+                <button class="time-slot time-slot--unavailable" data-time="13:00" disabled><span>13:00</span><small>Занято</small></button>
+                <button class="time-slot" data-time="14:00">14:00</button>
+                <button class="time-slot" data-time="15:00">15:00</button>
+                <button class="time-slot" data-time="16:00">16:00</button>
+                <button class="time-slot" data-time="17:00">17:00</button>
+              </div>
+            </section>
+          </div>
+
+          <div class="booking-bottom-bar">
+            <div class="selection-summary" id="selection-summary" aria-live="polite">20 июня 12:00</div>
+            <button class="next-button" id="next-button" type="button">Далее</button>
+          </div>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-content">
+          <div class="footer-brand-block">
+            <a class="footer-brand" href="#" aria-label="Барбершоп — главная"><svg viewBox="0 0 64 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="33" r="5.4"/><circle cx="25" cy="39" r="5.4"/><path d="M19 29 48 5 53 7 26 33M29 35 56 17M13 28 44 9M34 27 53 12"/><path d="m39 18 15-6"/></g></svg></a>
+            <p>Стрижем быстро и красиво</p>
+          </div>
+          <section class="footer-column" aria-labelledby="contacts-title">
+            <h2 id="contacts-title">Контакты</h2>
+            <p class="footer-contact"><span class="footer-icon" aria-hidden="true">⌖</span> ул. Садовая, 15, Москва</p>
+            <p class="footer-contact"><span class="footer-icon footer-phone" aria-hidden="true">☎</span> <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+          </section>
+          <section class="footer-column" aria-labelledby="hours-title">
+            <h2 id="hours-title">Режим работы</h2>
+            <p>Пн–Пт: 9:00 – 21:00</p>
+            <p>Сб–Вс: 10:00 – 19:00</p>
+          </section>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026. Все права защищены.</p>
+          <a href="#privacy">Политика конфиденциальности</a>
+        </div>
+      </footer>
     </div>
   </body>
 </html>
